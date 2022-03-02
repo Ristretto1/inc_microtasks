@@ -1,19 +1,17 @@
 import React from 'react';
 import './App.css';
-import Table from "./Table";
-
+import Button from "./components/Button";
 
 
 function App() {
 
-    const topCars = [
-        {manufacturer: 'BMW', model: 'm5cs'},
-        {manufacturer: 'Mercedes', model: 'e63s'},
-        {manufacturer: 'Audi', model: 'rs6'}
-    ]
-
     return (
-            <Table topCars = {topCars}/>
+        <div>
+            {/*<button>My YouTubeChanel-1</button>*/}
+            {/*<button>My YouTubeChanel-2</button>*/}
+            <Button name = {'My YouTubeChanel-1'}/>
+            <Button name = {'My YouTubeChanel-2'}/>
+        </div>
     );
 }
 
