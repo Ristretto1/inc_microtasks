@@ -1,5 +1,6 @@
 import React from 'react';
 import {FilterType} from "./App";
+import Button from "./Button";
 
 export type currentMoneyType = {
     banknots: string,
@@ -14,6 +15,8 @@ type currentMoneyPropsType = {
 
 
 const Comp = (props: currentMoneyPropsType) => {
+
+
     return (
         <>
             <ul>
@@ -28,9 +31,9 @@ const Comp = (props: currentMoneyPropsType) => {
                 })}
             </ul>
             <div style={{marginLeft: "35px"}}>
-                <button onClick={() => props.onClickFilterHandler('all')}>all</button>
-                <button onClick={() => props.onClickFilterHandler('RUBLS')}>RUBLS</button>
-                <button onClick={() => props.onClickFilterHandler('Dollars')}>Dollars</button>
+                <Button name={'all'} callback={() => props.onClickFilterHandler('all')}/>
+                <Button name={'RUBLS'} callback={() => props.onClickFilterHandler('RUBLS')}/>
+                <Button name={'Dollars'} callback={() => props.onClickFilterHandler('Dollars')}/>
             </div>
         </>
     );

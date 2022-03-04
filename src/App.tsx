@@ -4,9 +4,6 @@ import Comp from "./Comp";
 
 export type FilterType = 'all' | 'Dollars' | 'RUBLS';
 
-
-
-
 function App() {
 
     const [money, setMoney] = useState([
