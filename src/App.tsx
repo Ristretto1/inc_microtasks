@@ -1,34 +1,40 @@
 import React, {useState} from 'react';
 import './App.css';
-import Comp from "./Comp";
+import {Input} from "./components/Input";
+import Button from "./components/Button";
 
-export type FilterType = 'all' | 'Dollars' | 'RUBLS';
 
 function App() {
 
-    const [money, setMoney] = useState([
-        {banknots: 'Dollars', value: 100, number: ' a1234567890'},
-        {banknots: 'Dollars', value: 50, number: ' z1234567890'},
-        {banknots: 'RUBLS', value: 100, number: ' w1234567890'},
-        {banknots: 'Dollars', value: 100, number: ' e1234567890'},
-        {banknots: 'Dollars', value: 50, number: ' c1234567890'},
-        {banknots: 'RUBLS', value: 100, number: ' r1234567890'},
-        {banknots: 'Dollars', value: 50, number: ' x1234567890'},
-        {banknots: 'RUBLS', value: 50, number: ' v1234567890'},
+    let [message, setMessage] = useState([
+        {message: 'message1'},
+        {message: 'message2'},
+        {message: 'message3'},
     ])
 
-    const [filter, setFilter] = useState<FilterType>('all');
+    let [title, setTitle] = useState('')
 
-    let currentMoney = money;
-    if (filter === 'RUBLS') currentMoney = money.filter((filteredMoney) => filteredMoney.banknots === 'RUBLS');
-    if (filter === 'Dollars') currentMoney = money.filter((filteredMoney) => filteredMoney.banknots === 'Dollars');
+    const addMessage = (title:string) => {
+        let newMessage = {message: title};
+        setMessage([newMessage, ...message])
+    }
 
-    const onClickFilterHandler = (nameButton: FilterType) => {
-        setFilter(nameButton);
+    const callbackButtonHandler = () => {
+        addMessage(title)
+        setTitle('')
     }
 
     return (
-        <Comp currentMoney={currentMoney} onClickFilterHandler={onClickFilterHandler}/>
+        <div className={'App'}>
+            <Input setTitle={setTitle} title={title}/>
+            <Button name={'+'} callback={callbackButtonHandler}/>
+
+            {message.map((m, i) => {
+                return (
+                    <div key={i}>{m.message}</div>
+                )
+            })}
+        </div>
     );
 }
 
