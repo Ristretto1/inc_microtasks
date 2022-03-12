@@ -6,8 +6,7 @@ import OnOff from "./components/OnOff";
 function App() {
     return (
         <div>
-            <OnOff on={false}/>
-            <OnOff on={true}/>
+            <OnOff/>
         </div>
     )
 }
